@@ -36,3 +36,8 @@ npm start
 
 ### API's disponíveis
 * [Wiki do projeto](https://github.com/aliniribeiroo/wheather/wiki/API's)
+
+### Projeto em execução
+
+![mo954-l310p](https://user-images.githubusercontent.com/10133177/48674225-ebb0f300-eb30-11e8-912a-a1c7c09f412f.gif)
+
