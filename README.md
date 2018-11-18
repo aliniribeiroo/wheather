@@ -26,6 +26,7 @@ Backend - Há a necessidade de passar as inforações da base de dados, conforme
 -DWHEATHER_DB_HOST=jdbc:postgresql://localhost:5432/wheather
 -DWHEATHER_DB_USER=postgres
 -DWHEATHER_DB_PASSWORD=postgres
+** é preciso criar uma base de dados
 ```
 Frontend - dentro do diretório wheather-frontend executar os comandos:
 ```
