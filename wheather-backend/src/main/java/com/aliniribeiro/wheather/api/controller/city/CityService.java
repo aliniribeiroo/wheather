@@ -56,7 +56,8 @@ public class CityService {
      */
     public Optional<List<CityDTO>> searchCities(String q) {
         List<CityDTO> avaliableCities = getCities();
-        return Optional.ofNullable(avaliableCities.stream().filter(c -> c.name.toLowerCase().contains(q.toLowerCase())).collect(Collectors.toList()));
+        List<CityDTO> brazilianCities = avaliableCities.stream().filter(c -> c.country.equalsIgnoreCase("br")).collect(Collectors.toList());
+        return Optional.ofNullable(brazilianCities.stream().filter(c -> c.name.toLowerCase().contains(q.toLowerCase())).collect(Collectors.toList()));
     }
 
     public void loadCities() {

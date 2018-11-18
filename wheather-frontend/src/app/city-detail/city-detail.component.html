@@ -1,3 +1,28 @@
-<p>
-  city-detail works!
-</p>
+<div class="container">
+  <div class="header">
+    <div class="nav navbar-nav navbar-left">
+      <h4 class="title">Cidade {{cityName}}</h4>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Descrição</th>
+        <th>MIN</th>
+        <th>MAX</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let forecast of cityForecasts">
+        <td>{{forecast.date}}</td>
+        <td>{{forecast.temperatureDescription}}</td>
+        <td>{{forecast.minTemperature}}</td>
+        <td>{{forecast.maxTemperature}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<td><button class="btn btn-sm btn-success btn-icon" (click)="back()"><i class="fa fa-id-card-o "></i>Voltar</button></td>

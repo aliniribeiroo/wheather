@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "wheather-frontend": {
+    "wheather-frontendd": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/wheather-frontend",
+            "outputPath": "dist/wheather-frontendd",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,7 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -50,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "wheather-frontend:build"
+            "browserTarget": "wheather-frontendd:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "wheather-frontend:build:production"
+              "browserTarget": "wheather-frontendd:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "wheather-frontend:build"
+            "browserTarget": "wheather-frontendd:build"
           }
         },
         "test": {
@@ -72,8 +73,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css",
-              "../node_modules/bootstrap/dist/css/bootstrap.mon.css"
+              "src/styles.css"
             ],
             "scripts": [],
             "assets": [
@@ -96,7 +96,7 @@
         }
       }
     },
-    "wheather-frontend-e2e": {
+    "wheather-frontendd-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -104,11 +104,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "wheather-frontend:serve"
+            "devServerTarget": "wheather-frontendd:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "wheather-frontend:serve:production"
+              "devServerTarget": "wheather-frontendd:serve:production"
             }
           }
         },
@@ -124,5 +124,5 @@
       }
     }
   },
-  "defaultProject": "wheather-frontend"
+  "defaultProject": "wheather-frontendd"
 }

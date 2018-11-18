@@ -17,10 +17,10 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.UUID;
+import java.time.ZoneId;
+import java.util.*;
 
 @Component
 public class ForecastService {
@@ -36,9 +36,8 @@ public class ForecastService {
     private final String WHEATHER_ID = "id";
     private final String DATE = "dt_txt";
 
-    public ForecastOutput getCityForecast(UUID cityId) {
-        ForecastOutput output = new ForecastOutput();
-        output.forecasts = new ArrayList<>();
+    public List<ForecastDTO> getCityForecast(UUID cityId) {
+        List<ForecastDTO> output = new ArrayList<>();
         Optional<CityEntity> city = Spring.bean(CityRepository.class).findCityById(cityId);
         if (city.isPresent()){
             try {
@@ -47,7 +46,7 @@ public class ForecastService {
                 });
                 String response = responseEntity.getBody();
                 for (int i = 1; i < 5; i ++){
-                    output.forecasts.add(getForecast(response, i, city.get().getName()));
+                    output.add(getForecast(response, i, city.get().getName()));
                 }
             } catch (URISyntaxException e) {
                 e.printStackTrace();
@@ -57,7 +56,7 @@ public class ForecastService {
     }
 
     public ForecastDTO getForecast(String weatherJsonStr, int dayIndex, String cityName) {
-        LocalDate today = LocalDate.now();
+
         ForecastDTO forecast = new ForecastDTO();
         JSONParser parser = new JSONParser();
         try {
@@ -80,10 +79,17 @@ public class ForecastService {
             forecast.cityName = cityName;
 
             //Data
-            forecast.date  = today.minusDays(dayIndex - 1);
+            forecast.date  = getForecastDate(dayIndex - 1);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return forecast;
+    }
+
+    private String getForecastDate(int index){
+        Date date = Date.from(LocalDate.now().minusDays(index).atStartOfDay(ZoneId.systemDefault()).toInstant());
+        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        String str = fmt.format(date);
+        return str;
     }
 }

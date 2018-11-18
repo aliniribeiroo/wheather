@@ -1,10 +1,31 @@
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="saveCity()" novalidate>
+    <label class="control-label">Cidade</label>
+    <div class="row">
+      <div class="form-group col-9">
+        <select [(ngModel)]="selectedCity" class="form-control" id="city" name="city">
+          <option *ngFor="let city of cities" [ngValue]="city" required>{{city.name}}</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <button type="submit" class="btn">Salvar</button>
+      </div>
+    </div>
+  </form>
+</div>
 
-<h4>Basic mat-select</h4>
-<mat-form-field>
-  <mat-select placeholder="Selecione uma cidade">
-    <mat-option *ngFor="let city of listCities" [value]="city.id">
-      {{city.name}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Cidade</th>
+      <th>País</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let city of myCities">
+      <td>{{city.name}}</td>
+      <td>{{city.country}}</td>
+      <td><button class="btn btn-sm btn-success btn-icon" (click)="detailCity(city.id)"><i class="fa fa-id-card-o "></i>Detalhar</button></td>
+    </tr>
+  </tbody>
+</table>
