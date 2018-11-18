@@ -30,9 +30,9 @@ Este projeto faz integração com a API [OpenWheatherMap](https://openweathermap
 
 > Para rodar a aplicação localmente, há a necessidade de passar as inforações da base de dados, conforme exemplo:
 ```
--DDB_HOST=jdbc:postgresql://localhost:5432/wheather
--DDB_USER=postgres
--DDB_PASSWORD=postgres
+-DWHEATHER_DB_HOST=jdbc:postgresql://localhost:5432/wheather
+-DWHEATHER_DB_USER=postgres
+-DWHEATHER_DB_PASSWORD=postgres
 ```
 
 ### API's disponíveis
