@@ -21,18 +21,16 @@ Este projeto faz integração com a API [OpenWheatherMap](https://openweathermap
 
 ## Executando a aplicação
 
-1. Como pré-requisito, possuir [docker](https://www.docker.com/).
-2. Baixar o arquivo docker-compose.yml deste repositório e executar o comando: docker-compose up.
-
-> Será baixada a imagem do banco de dados e da aplicação, onde a mesma ficará disponível na porta 8080.
-> A aplicação frontend ficará disponível em localhost:4200.
-> Importante: A imagem do banco de dados que o docker irá iniciar utiliza a porta 5432, fica imprescindível ter esta porta disponível ao iniciar a orquestragem dos containers.
-
-> Para rodar a aplicação localmente, há a necessidade de passar as inforações da base de dados, conforme exemplo:
+Backend - Há a necessidade de passar as inforações da base de dados, conforme exemplo:
 ```
 -DWHEATHER_DB_HOST=jdbc:postgresql://localhost:5432/wheather
 -DWHEATHER_DB_USER=postgres
 -DWHEATHER_DB_PASSWORD=postgres
+```
+Frontend - dentro do diretório wheather-frontend executar os comandos:
+```
+npm install
+npm start
 ```
 
 ### API's disponíveis
