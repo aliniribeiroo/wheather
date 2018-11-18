@@ -1,0 +1,30 @@
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="saveCity()" novalidate>
+    <label class="control-label">Cidade</label>
+    <div class="row">
+      <div class="form-group col-9">
+        <select [(ngModel)]="selectedCity" class="form-control" id="city" name="city">
+          <option *ngFor="let city of cities | async" [ngValue]="city">{{city.name}}</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <button type="submit" class="btn">Salvar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Cidade</th>
+        <th>País</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let city of myCities">
+        <td>{{city.name}}</td>
+        <td>{{city.country}}</td>
+      </tr>
+    </tbody>
+  </table>
